@@ -76,9 +76,7 @@ public class Magpie
 		{
 			response = "You don't say.";
 		}
-                else if ( whichResponse == 4 ){
-                    response = "Screw you";
-                }
+                
 		
 		return response;
 	}
