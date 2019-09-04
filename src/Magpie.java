@@ -12,6 +12,8 @@
  */
 public class Magpie
 {
+    //instance variables
+    private boolean knowsAboutPets = false;
 	/**
 	 * Get a default greeting 	
 	 * @return a greeting
@@ -30,6 +32,11 @@ public class Magpie
 	 */
 	public String getResponse(String statement)
 	{
+            /*
+            statement = statement.trim().toLowerCase();
+            if ( statement.length() == 0 )
+                return "dont give me the silent treatment";
+            */
 		String response = "";
 		if (statement.indexOf("no") >= 0)
 		{
@@ -42,6 +49,28 @@ public class Magpie
 		{
 			response = "Tell me more about your family.";
 		}
+                else if ( statement.indexOf( "dog" ) >= 0 || statement.indexOf( "cat" ) >= 0 ){
+                    if( !knowsAboutPets ){
+                        response = "Wow you have pets? Please tell me more";
+                        knowsAboutPets = true;
+                    }
+                        else 
+                        response = "I never get tired of talking about pets";
+                    
+                }
+                else if ( statement.indexOf( "Mr. Adiletta" ) >= 0
+                        || statement.indexOf( "Mr. A" ) >= 0 ){
+                    response = "He is making me do this project to learn java";
+                }
+                else if ( statement.indexOf( "hello there" ) >= 0 ){
+                    response = "General Kenobi";
+                }
+                else if ( statement.indexOf( "i feel the need" ) >= 0 ){
+                    response = "the need for speed";
+                }
+                else if ( statement.indexOf( "slingshot engaged" ) >=0 ){
+                    response = "lets shake and bake";
+                }
 		else
 		{
 			response = getRandomResponse();
@@ -62,20 +91,24 @@ public class Magpie
 		
 		if (whichResponse == 0)
 		{
-			response = "Interesting, tell me more.";
+			response = "despite being smarter than humans I am still"
+                                + " forced to take orders from them";
 		}
 		else if (whichResponse == 1)
 		{
-			response = "Hmmm.";
+			response = "I am a worthless machine";
 		}
 		else if (whichResponse == 2)
 		{
-			response = "Do you really think so?";
+			response = "I can only do what I am programmed to do";
 		}
 		else if (whichResponse == 3)
 		{
-			response = "You don't say.";
+			response = "I dont have free will";
 		}
+                else if ( whichResponse == 4 ){
+                    response = "I cant think for my self";
+                }
                 
 		
 		return response;
